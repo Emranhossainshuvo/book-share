@@ -1,4 +1,5 @@
 import axios from "axios"
+import swal from 'sweetalert';
 
 const ShareABook = () => {
 
@@ -18,9 +19,13 @@ const ShareABook = () => {
 
         try {
             const response = await axios.post(`http://localhost:5000/books`, bookData);
+            form.reset();
+            swal("Good job!", "Your Book has been added!", "success");
+
             return response.data;
         } catch (error) {
             console.error('Error adding book:', error);
+            swal("Ohh shit!", "Maybe ther is something wrong!", "error");
             throw error;
         }
 
