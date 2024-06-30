@@ -2,19 +2,27 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import axios from "axios"
+import swal from "sweetalert";
 
 const Register = () => {
 
     const navigate = useNavigate();
     const {createUser} = useContext(AuthContext); 
 
-    const handleCreateUser = e => {
+    const handleCreateUser = async e => {
         e.preventDefault()
         const form = e.target;
         const name = form.name.value; 
         const email = form.email.value;
         const password = form.password.value; 
         const url = form.url.value;
+
+        const user = {
+            name, 
+            email, 
+            url
+        }
 
         console.log(url);
 
@@ -24,6 +32,19 @@ const Register = () => {
             console.log(user)
             navigate("/")
         })
+
+        try {
+            const response = await axios.post(`http://localhost:5000/users`, user);
+            form.reset();
+            swal("Good job!", "Your information has been added!", "success");
+
+            return response.data;
+        } catch (error) {
+            console.error('Error adding user information:', error);
+            swal("Ohh shit!", "Maybe there is something wrong!", "error");
+            throw error;
+        }
+
 
 
     }
