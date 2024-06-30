@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Navbar = () => {
-
+    
     const { user } = useContext(AuthContext)
     const [menuOpen, setMenuOpen] = useState(false);
 
