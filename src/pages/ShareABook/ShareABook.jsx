@@ -37,7 +37,7 @@ const ShareABook = () => {
 
     return (
         <>
-            <section className="h-[100vh] flex items-center justify-center w-[100vw] bg-[#31473a]">
+            <section className="h-[100vh] flex items-center justify-center bg-[#31473a]">
                 {/* section to hold the main content */}
                 <section className="bg-[#f1f1f2] w-3/12 rounded-xl">
                     <Helmet>

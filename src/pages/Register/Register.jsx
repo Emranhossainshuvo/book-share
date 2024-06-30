@@ -53,7 +53,7 @@ const Register = () => {
     return (
         <>
             {/* section that will hold everything in this file */}
-            <section className="h-[100vh] flex items-center justify-center w-[100vw] bg-[#31473a]">
+            <section className="h-[100vh] flex items-center justify-center bg-[#31473a]">
                 <Helmet>
                     <title>Book Hive || Register</title>
                 </Helmet>
