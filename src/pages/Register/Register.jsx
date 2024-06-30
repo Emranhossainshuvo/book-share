@@ -14,7 +14,9 @@ const Register = () => {
         const name = form.name.value; 
         const email = form.email.value;
         const password = form.password.value; 
-        const file = form.file.value;
+        const url = form.url.value;
+
+        console.log(url);
 
         createUser(email, password)
         .then(result => {
@@ -41,6 +43,7 @@ const Register = () => {
                         <input placeholder="Name" className="h-10 ps-3 rounded-md" type="text" name="name" id="" />
                         <input placeholder="Email" className="h-10 ps-3 rounded-md" type="email" name="email" id="" />
                         <input placeholder="Password" className="h-10 ps-3 rounded-md" type="password" name="password" id="" />
+                        <input className="h-10 ps-3 rounded-md" type="text" name="url" placeholder="Profile url" />
                         <input placeholder="" className="h-10 ps-3 rounded-md" type="file" style={{ display: "none" }} name="file" id="file" />
                         <label className=" flex gap-2 justify-start items-center" htmlFor="file">
                             <img src="https://i.ibb.co/Yb1GxFc/icons8-image-30.png" alt="" />
