@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Navbar = () => {
 
-
+    const { user } = useContext(AuthContext)
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
@@ -13,8 +14,8 @@ const Navbar = () => {
                     <div className="flex items-center space-x-4">
                         <div className="text-white text-lg font-bold">
                             <Link to={"/"}>Logo</Link>
-                            
-                            </div>
+
+                        </div>
                         <div className="hidden md:flex space-x-4">
                             <a href="#" className="text-white">AllBooks</a>
                             <a href="#" className="text-white">Favorites</a>
@@ -33,13 +34,19 @@ const Navbar = () => {
                             />
                         </div>
 
-                        <img
-                            src="userImage.jpg"
-                            alt="User"
-                            className="w-10 h-10 rounded-full"
-                        />
+                        {
+                            user ? <img
+                                src="userImage.jpg"
+                                alt="User"
+                                className="w-10 h-10 rounded-full"
+                            /> :
 
-                        <button>Login</button>
+                                <button>Login</button>
+                        }
+
+
+
+
 
                         <div className="md:hidden">
                             <button

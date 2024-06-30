@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
 
-
+    const navigate = useNavigate();
     const {createUser} = useContext(AuthContext); 
 
     const handleCreateUser = e => {
@@ -18,6 +19,7 @@ const Register = () => {
         .then(result => {
             const user = result.user;
             console.log(user)
+            navigate("/")
         })
 
 
