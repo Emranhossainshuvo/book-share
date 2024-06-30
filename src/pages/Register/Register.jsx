@@ -1,4 +1,31 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+
 const Register = () => {
+
+
+    const {createUser} = useContext(AuthContext); 
+
+    const handleCreateUser = e => {
+        e.preventDefault()
+        const form = e.target;
+        const name = form.name.value; 
+        const email = form.email.value;
+        const password = form.password.value; 
+        const file = form.file.value;
+
+        const user = {
+            name, 
+            email, 
+            password,
+            file
+        }
+
+
+        console.log(user)
+
+    }
+
     return (
         <>
             {/* section that will hold everything in this file */}
@@ -7,11 +34,11 @@ const Register = () => {
                 <section className="bg-[#f1f1f2] rounded-xl">
                     <h3 className="text-center text-3xl font-semibold mb-3 mt-2">Talks chat</h3>
                     <p className="text-center text-xl font-semibold">Register</p>
-                    <form className="flex flex-col gap-7 px-10">
-                        <input placeholder="Name" className="h-10 ps-3 rounded-md" type="text" name="" id="" />
-                        <input placeholder="Email" className="h-10 ps-3 rounded-md" type="email" name="" id="" />
-                        <input placeholder="Password" className="h-10 ps-3 rounded-md" type="password" name="" id="" />
-                        <input placeholder="" className="h-10 ps-3 rounded-md" type="file" style={{ display: "none" }} name="" id="file" />
+                    <form onSubmit={handleCreateUser} className="flex flex-col gap-7 px-10">
+                        <input placeholder="Name" className="h-10 ps-3 rounded-md" type="text" name="name" id="" />
+                        <input placeholder="Email" className="h-10 ps-3 rounded-md" type="email" name="email" id="" />
+                        <input placeholder="Password" className="h-10 ps-3 rounded-md" type="password" name="password" id="" />
+                        <input placeholder="" className="h-10 ps-3 rounded-md" type="file" style={{ display: "none" }} name="file" id="file" />
                         <label className=" flex gap-2 justify-start items-center" htmlFor="file">
                             <img src="https://i.ibb.co/Yb1GxFc/icons8-image-30.png" alt="" />
                             <p className="text-lg font-semibold">

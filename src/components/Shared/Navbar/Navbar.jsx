@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -10,7 +11,10 @@ const Navbar = () => {
             <nav className="bg-blue-600 p-4">
                 <div className="container mx-auto flex items-center justify-between">
                     <div className="flex items-center space-x-4">
-                        <div className="text-white text-lg font-bold">Logo</div>
+                        <div className="text-white text-lg font-bold">
+                            <Link to={"/"}>Logo</Link>
+                            
+                            </div>
                         <div className="hidden md:flex space-x-4">
                             <a href="#" className="text-white">AllBooks</a>
                             <a href="#" className="text-white">Favorites</a>
