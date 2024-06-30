@@ -6,11 +6,13 @@ import Login from "../pages/Login/Login";
 import ShareABook from "../pages/ShareABook/ShareABook";
 import AllBooks from "../pages/AllBooks/AllBooks";
 import Favorites from "../pages/Favorites/Favorites";
+import ErrorPage from "../components/ErroPage/ErrorPage";
 
 export const router = createBrowserRouter([
     {
       path: "/",
       element: <Main />,
+      errorElement: <ErrorPage />,
       children: [
         {
           path: "/", 
