@@ -14,15 +14,12 @@ const Register = () => {
         const password = form.password.value; 
         const file = form.file.value;
 
-        const user = {
-            name, 
-            email, 
-            password,
-            file
-        }
+        createUser(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+        })
 
-
-        console.log(user)
 
     }
 
