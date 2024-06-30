@@ -1,26 +1,25 @@
 
 const Banner = () => {
-    return (
-        <>
-             <div className="bg-gray-200">
-      <div className="container mx-auto p-8 flex items-center justify-between">
-        <div className="max-w-lg">
-          <h1 className="text-4xl font-bold text-gray-800">Start Sharing Today</h1>
-          <button className="mt-6 px-6 py-2 bg-blue-600 text-white text-lg rounded-full hover:bg-blue-700">
-            Get Started
-          </button>
+  return (
+    <>
+      <section className="bg-cover h-[80vh] bg-black " style={{ backgroundImage: "url(https://i.ibb.co/s2Jp4rp/4301.jpg)" }}>
+
+
+        <div className="flex justify-between items-center">
+
+
+          <div>
+            <h4 className="text-white text-4xl font-semibold">Start Sharing Today!</h4>
+          </div>
+
+          <div>
+            <img src="https://i.ibb.co/s2Jp4rp/4301.jpg" alt="" />
+          </div>
         </div>
-        <div className="max-w-md">
-          <img
-            src="https://via.placeholder.com/400"
-            alt="Books"
-            className="rounded-lg shadow-lg"
-          />
-        </div>
-      </div>
-    </div>  
-        </>
-    );
+
+      </section>
+    </>
+  );
 };
 
 export default Banner;

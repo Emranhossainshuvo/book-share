@@ -1,4 +1,5 @@
 import axios from "axios"
+import { Helmet } from "react-helmet-async";
 import swal from 'sweetalert';
 
 const ShareABook = () => {
@@ -11,8 +12,8 @@ const ShareABook = () => {
         const description = form.description.value;
 
         const bookData = {
-            name, 
-            author, 
+            name,
+            author,
             description
         }
 
@@ -37,6 +38,9 @@ const ShareABook = () => {
             <section className="h-[100vh] flex items-center justify-center w-[100vw] bg-[#31473a]">
                 {/* section to hold the main content */}
                 <section className="bg-[#f1f1f2] w-3/12 rounded-xl">
+                    <Helmet>
+                        <title>Book Hive || Share</title>
+                    </Helmet>
                     <h3 className="text-center text-3xl font-semibold mb-3 mt-2">Talks chat</h3>
                     <p className="text-center text-xl font-semibold">Share a book</p>
                     <form onSubmit={handleSubmit} className="flex flex-col gap-7 px-10">

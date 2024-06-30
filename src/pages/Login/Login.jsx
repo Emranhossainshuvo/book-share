@@ -1,8 +1,13 @@
+import { Helmet } from "react-helmet-async";
+
 const Login = () => {
     return (
         <>
             {/* section that will hold everything in this file */}
             <section className="h-[100vh] flex items-center justify-center w-[100vw] bg-[#31473a]">
+                <Helmet>
+                    <title>Book Hive || Login</title>
+                </Helmet>
                 {/* section to hold the main content */}
                 <section className="bg-[#f1f1f2] rounded-xl">
                     <h3 className="text-center text-3xl font-semibold mb-3 mt-2">Talks chat</h3>
