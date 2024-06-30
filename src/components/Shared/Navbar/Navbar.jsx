@@ -51,18 +51,10 @@ const Navbar = () => {
                         </div>
 
                         {
-                            user ? <img
-                                src="https://avatars.githubusercontent.com/u/121652416?v=4"
-                                alt="User"
-                                className="w-10 h-10 rounded-full"
-                            /> :
+                            user ? <button>LogOut</button> :
 
                                 <button>Login</button>
                         }
-
-
-
-
 
                         <div className="md:hidden">
                             <button
