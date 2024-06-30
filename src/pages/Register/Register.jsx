@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import axios from "axios"
 import swal from "sweetalert";
+import { UserContext } from "../../Providers/UserContext";
 
 const Register = () => {
 

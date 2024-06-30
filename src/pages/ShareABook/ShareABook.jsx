@@ -10,11 +10,13 @@ const ShareABook = () => {
         const name = form.name.value;
         const author = form.author.value;
         const description = form.description.value;
+        const photo = form.photo.value;
 
         const bookData = {
             name,
             author,
-            description
+            description,
+            photo
         }
 
 
@@ -47,6 +49,7 @@ const ShareABook = () => {
                         <input placeholder="Name" className="h-10 ps-3 rounded-md" type="text" name="name" id="" />
                         <input placeholder="Author" className="h-10 ps-3 rounded-md" type="text" name="author" id="" />
                         <input placeholder="description" className="h-10 ps-3 rounded-md" type="text" name="description" id="" />
+                        <input placeholder="Photo url" className="h-10 ps-3 rounded-md" type="text" name="photo" id="" />
                         <input placeholder="" className="h-10 ps-3 rounded-md" type="file" style={{ display: "none" }} name="file" id="file" />
                         <label className=" flex gap-2 justify-start items-center" htmlFor="file">
                             <img src="https://i.ibb.co/Yb1GxFc/icons8-image-30.png" alt="" />

@@ -1,10 +1,12 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
+// import { UserContext } from "../../../Providers/UserContext";
 
 const Navbar = () => {
     
     const { user } = useContext(AuthContext)
+
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
@@ -50,7 +52,7 @@ const Navbar = () => {
 
                         {
                             user ? <img
-                                src="userImage.jpg"
+                                src="https://avatars.githubusercontent.com/u/121652416?v=4"
                                 alt="User"
                                 className="w-10 h-10 rounded-full"
                             /> :
