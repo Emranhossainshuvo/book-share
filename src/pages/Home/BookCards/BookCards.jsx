@@ -29,7 +29,8 @@ const BookCards = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {
                         article.map(item => <BookCard
-                            key={item.id}
+                        item={item}
+                            key={item._id}
                         >
 
                         </BookCard>)
