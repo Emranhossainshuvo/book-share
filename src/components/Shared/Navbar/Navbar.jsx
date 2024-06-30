@@ -35,6 +35,8 @@ const Navbar = () => {
                             className="w-10 h-10 rounded-full"
                         />
 
+                        <button>Login</button>
+
                         <div className="md:hidden">
                             <button
                                 onClick={() => setMenuOpen(!menuOpen)}
