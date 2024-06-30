@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { createContext, useEffect, useState } from 'react';
 import { app } from '../firebase/firebase.config';
+import swal from 'sweetalert';
 
 
 export const AuthContext = createContext(null);
@@ -17,15 +18,14 @@ const AuthProvider = ({children}) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
+    const logOut = () => {
+        return signOut(auth)
+    }
+
     const logInUser = (email, password)=> {
         setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
-
-    const logOut = () => {
-        setLoading(true);
-        return signOut(auth);
-      };
 
     const authData= {
         createUser,

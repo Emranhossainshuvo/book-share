@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import axios from "axios"
 import swal from "sweetalert";
@@ -9,30 +9,30 @@ import { UserContext } from "../../Providers/UserContext";
 const Register = () => {
 
     const navigate = useNavigate();
-    const {createUser} = useContext(AuthContext); 
+    const { createUser } = useContext(AuthContext);
 
     const handleCreateUser = async e => {
         e.preventDefault()
         const form = e.target;
-        const name = form.name.value; 
+        const name = form.name.value;
         const email = form.email.value;
-        const password = form.password.value; 
+        const password = form.password.value;
         const url = form.url.value;
 
         const user = {
-            name, 
-            email, 
+            name,
+            email,
             url
         }
 
         console.log(url);
 
         createUser(email, password)
-        .then(result => {
-            const user = result.user;
-            console.log(user)
-            navigate("/")
-        })
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                navigate("/")
+            })
 
         try {
             const response = await axios.post(`http://localhost:5000/users`, user);
@@ -62,9 +62,9 @@ const Register = () => {
                     <h3 className="text-center text-3xl font-semibold mb-3 mt-2">Talks chat</h3>
                     <p className="text-center text-xl font-semibold">Register</p>
                     <form onSubmit={handleCreateUser} className="flex flex-col gap-7 px-10">
-                        <input placeholder="Name" className="h-10 ps-3 rounded-md" type="text" name="name" id="" />
-                        <input placeholder="Email" className="h-10 ps-3 rounded-md" type="email" name="email" id="" />
-                        <input placeholder="Password" className="h-10 ps-3 rounded-md" type="password" name="password" id="" />
+                        <input placeholder="Name" className="h-10 ps-3 rounded-md" type="text" name="name" />
+                        <input placeholder="Email" className="h-10 ps-3 rounded-md" type="email" name="email" />
+                        <input placeholder="Password" className="h-10 ps-3 rounded-md" type="password" name="password"  />
                         <input className="h-10 ps-3 rounded-md" type="text" name="url" placeholder="Profile url" />
                         <input placeholder="" className="h-10 ps-3 rounded-md" type="file" style={{ display: "none" }} name="file" id="file" />
                         <label className=" flex gap-2 justify-start items-center" htmlFor="file">
@@ -75,7 +75,11 @@ const Register = () => {
                         </label>
                         <input className="h-10 bg-[#31473a] text-white text-lg font-semibold rounded-md" type="submit" value="Register" />
                     </form>
-                    <p className="text-center my-4">Already have an account?<span>Login</span></p>
+                    <p className="text-center my-4">Already have an account?<span>
+                        <Link to={"/login"}>
+                            Login
+                        </Link>
+                    </span></p>
                 </section>
             </section>
         </>

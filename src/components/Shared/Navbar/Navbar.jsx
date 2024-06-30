@@ -1,13 +1,21 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import swal from "sweetalert";
 // import { UserContext } from "../../../Providers/UserContext";
 
 const Navbar = () => {
-    
-    const { user } = useContext(AuthContext)
+
+    const { user, logOut } = useContext(AuthContext)
 
     const [menuOpen, setMenuOpen] = useState(false);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                swal("Warning!", "User has signed out!", "info");
+            })
+    }
 
     return (
         <>
@@ -51,9 +59,11 @@ const Navbar = () => {
                         </div>
 
                         {
-                            user ? <button>LogOut</button> :
+                            user ? <button onClick={handleLogOut}>LogOut</button> :
 
-                                <button>Login</button>
+                                <Link to={"/login"}>
+                                    <button>Login</button>
+                                </Link>
                         }
 
                         <div className="md:hidden">
