@@ -3,6 +3,7 @@ import Main from "../Layouts/Main/Main";
 import Home from "../pages/Home/Home/Home";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
+import ShareABook from "../pages/ShareABook/ShareABook";
 
 export const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
         {
           path: "/login", 
           element: <Login />
+        },
+        {
+          path: "/sharebook",
+          element: <ShareABook />
         }
       ]
     },
