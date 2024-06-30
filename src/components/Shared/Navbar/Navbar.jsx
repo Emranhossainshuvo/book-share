@@ -19,10 +19,15 @@ const Navbar = () => {
                         <div className="hidden md:flex space-x-4">
                             <a href="#" className="text-white">
                                 <Link to={"/allBooks"}>
-                                AllBooks
+                                    AllBooks
                                 </Link>
-                                </a>
-                            <a href="#" className="text-white">Favorites</a>
+                            </a>
+                            <a href="#" className="text-white">
+                                <Link to={"/favorites"}>
+                                    Favorites
+                                </Link>
+
+                            </a>
                             <a href="#" className="text-white">
                                 <Link to={"sharebook"}>
                                     ShareABook

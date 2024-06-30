@@ -5,6 +5,7 @@ import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import ShareABook from "../pages/ShareABook/ShareABook";
 import AllBooks from "../pages/AllBooks/AllBooks";
+import Favorites from "../pages/Favorites/Favorites";
 
 export const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
         {
           path: "/allBooks", 
           element: <AllBooks />
+        }, 
+        {
+          path: "/favorites",
+          element: <Favorites />
         }
       ]
     },
