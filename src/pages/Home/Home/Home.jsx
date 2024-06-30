@@ -6,11 +6,11 @@ import { UserContext } from "../../../Providers/UserContext";
 const Home = () => {
 
     return (
-        <>
+        <div className="">
         <Banner />
         <BookCards />
            <h1>Home page</h1> 
-        </>
+        </div>
     );
 };
 
