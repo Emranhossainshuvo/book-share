@@ -57,7 +57,7 @@ const ShareABook = () => {
                                 Upload a picture
                             </p>
                         </label>
-                        <input className="h-10 mb-8 bg-[#31473a] text-white text-lg font-semibold rounded-md" type="submit" value="Share now" />
+                        <input className="h-10 mb-8 cursor-pointer bg-[#31473a] text-white text-lg font-semibold rounded-md" type="submit" value="Share now" />
                     </form>
                 </section>
             </section>

@@ -59,7 +59,7 @@ const Register = () => {
                 </Helmet>
                 {/* section to hold the main content */}
                 <section className="bg-[#f1f1f2] rounded-xl">
-                    <h3 className="text-center text-3xl font-semibold mb-3 mt-2">Talks chat</h3>
+                    <h3 className="text-center text-3xl font-semibold mb-3 mt-2">Books Swap</h3>
                     <p className="text-center text-xl font-semibold">Register</p>
                     <form onSubmit={handleCreateUser} className="flex flex-col gap-7 px-10">
                         <input placeholder="Name" className="h-10 ps-3 rounded-md" type="text" name="name" />
@@ -73,7 +73,7 @@ const Register = () => {
                                 Upload your profile picture
                             </p>
                         </label>
-                        <input className="h-10 bg-[#31473a] text-white text-lg font-semibold rounded-md" type="submit" value="Register" />
+                        <input className="h-10 cursor-pointer bg-[#31473a] text-white text-lg font-semibold rounded-md" type="submit" value="Register" />
                     </form>
                     <p className="text-center my-4">Already have an account?<span>
                         <Link to={"/login"}>
