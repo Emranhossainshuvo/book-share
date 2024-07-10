@@ -5,8 +5,8 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 const BookCard = ({ item }) => {
 
     const { name, author, description, photo } = item || {};
-    const {person} = useContext(UserContext);
-    const {user} = useContext(AuthContext)
+    const { person } = useContext(UserContext);
+    const { user } = useContext(AuthContext)
 
     return (
         <>
@@ -36,11 +36,11 @@ const BookCard = ({ item }) => {
 
                     <div className="mt-6 flex items-center gap-8 text-xs">
                         <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                            
+
                             <img className="w-14" src={
                                 person?.photo ? person.photo : "https://i.ibb.co/jRJwGT3/profile-pic.png"
-                                
-                                } alt="" />
+
+                            } alt="" />
 
                             <div className="mt-1.5 sm:mt-0">
                                 <p className="text-gray-500">
@@ -97,7 +97,11 @@ const BookCard = ({ item }) => {
 
                                 <p className="font-medium">4 months</p>
                             </div>
+
                         </div>
+                        <button className="py-2 px-3 bg-gray-900 text-white text-sm rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:bg-black">
+                            + Favorites
+                        </button>
                     </div>
                 </div>
             </a>

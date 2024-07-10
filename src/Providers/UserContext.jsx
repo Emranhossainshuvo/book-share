@@ -4,7 +4,7 @@ import axios from "axios"
 export const UserContext = createContext(null);
 
 
-const UserProvider = ({children}) => {
+const UserProvider = ({ children }) => {
 
     const [person, setPerson] = useState([]);
 
@@ -21,17 +21,17 @@ const UserProvider = ({children}) => {
         fetchData()
     }, [])
 
-    const authData= {
-        person, 
+    const authData = {
+        person,
     }
 
 
 
     return (
         <UserContext.Provider value={authData}>
-                {children}
+            {children}
         </UserContext.Provider>
-    );  
+    );
 };
 
 export default UserProvider;
