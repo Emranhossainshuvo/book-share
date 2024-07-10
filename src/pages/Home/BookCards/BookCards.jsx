@@ -34,7 +34,7 @@ const BookCards = () => {
 
                     :
 
-                    <section className="max-w-screen-2xl mx-auto">
+                    <section className="max-w-screen-2xl mb-5  mx-auto">
 
                         <div className="grid gap-x-3 gap-y-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                             {

@@ -1,7 +1,12 @@
+import { useContext } from "react";
+import { UserContext } from "../../../Providers/UserContext";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const BookCard = ({ item }) => {
 
     const { name, author, description, photo } = item || {};
+    const {person} = useContext(UserContext);
+    const {user} = useContext(AuthContext)
 
     return (
         <>
@@ -19,7 +24,7 @@ const BookCard = ({ item }) => {
                         <div>
                             <dt className="sr-only">Price</dt>
 
-                            <dd className="text-sm text-gray-500">$240,000</dd>
+                            <dd className="text-sm text-gray-500">5h ago</dd>
                         </div>
 
                         <div>
@@ -31,25 +36,18 @@ const BookCard = ({ item }) => {
 
                     <div className="mt-6 flex items-center gap-8 text-xs">
                         <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                            <svg
-                                className="size-4 text-indigo-700"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
-                                />
-                            </svg>
+                            
+                            <img className="w-14" src={
+                                person?.photo ? person.photo : "https://i.ibb.co/jRJwGT3/profile-pic.png"
+                                
+                                } alt="" />
 
                             <div className="mt-1.5 sm:mt-0">
-                                <p className="text-gray-500">Parking</p>
+                                <p className="text-gray-500">
+                                    Alex bot
+                                </p>
 
-                                <p className="font-medium">2 spaces</p>
+                                <p className="font-medium">2 pieces</p>
                             </div>
                         </div>
 
@@ -70,9 +68,11 @@ const BookCard = ({ item }) => {
                             </svg>
 
                             <div className="mt-1.5 sm:mt-0">
-                                <p className="text-gray-500">Bathroom</p>
+                                <p className="text-gray-500">Condition</p>
 
-                                <p className="font-medium">2 rooms</p>
+                                <p className="font-medium">
+                                    Average
+                                </p>
                             </div>
                         </div>
 
@@ -93,9 +93,9 @@ const BookCard = ({ item }) => {
                             </svg>
 
                             <div className="mt-1.5 sm:mt-0">
-                                <p className="text-gray-500">Bedroom</p>
+                                <p className="text-gray-500">Used for</p>
 
-                                <p className="font-medium">4 rooms</p>
+                                <p className="font-medium">4 months</p>
                             </div>
                         </div>
                     </div>

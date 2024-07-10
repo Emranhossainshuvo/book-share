@@ -7,6 +7,7 @@ import ShareABook from "../pages/ShareABook/ShareABook";
 import AllBooks from "../pages/AllBooks/AllBooks";
 import Favorites from "../pages/Favorites/Favorites";
 import ErrorPage from "../components/ErroPage/ErrorPage";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
     {
@@ -28,7 +29,7 @@ export const router = createBrowserRouter([
         },
         {
           path: "/sharebook",
-          element: <ShareABook />
+          element:  <PrivateRoutes><ShareABook /></PrivateRoutes> 
         },
         {
           path: "/allBooks", 

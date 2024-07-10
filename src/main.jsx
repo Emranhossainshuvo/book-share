@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <AuthProvider>
       <HelmetProvider>
         <UserProvider>
-          <RouterProvider router={router} />
+            <RouterProvider router={router} />
         </UserProvider>
       </HelmetProvider>
     </AuthProvider>
