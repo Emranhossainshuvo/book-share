@@ -14,7 +14,7 @@ const BookCard = ({ item }) => {
         try {
             const response = await axios.post(`http://localhost:5000/favorites`, e);
             swal("Good job!", `${name} has been added as favorites`, "success");
-
+            console.log(response.data)
             return response.data;
         } catch (error) {
             console.error('Error adding user information:', error);
