@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import axios from "axios"
 import swal from "sweetalert";
-import { UserContext } from "../../Providers/UserContext";
 
 const Register = () => {
 
@@ -45,11 +44,7 @@ const Register = () => {
             swal("Ohh shit!", "Maybe there is something wrong!", "error");
             throw error;
         }
-
-
-
     }
-
     return (
         <>
             {/* section that will hold everything in this file */}

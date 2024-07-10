@@ -1,16 +1,31 @@
 import { useContext } from "react";
 import { UserContext } from "../../../Providers/UserContext";
-import { AuthContext } from "../../../Providers/AuthProvider";
+import swal from "sweetalert";
+import axios from "axios";
 
 const BookCard = ({ item }) => {
 
-    const { name, author, description, photo } = item || {};
+    const { name, _id, author, description, photo } = item || {};
     const { person } = useContext(UserContext);
-    const { user } = useContext(AuthContext)
+    // const { user } = useContext(AuthContext)
+    // console.log(item)
+
+    const handleAddToFavorites = async e => {
+        try {
+            const response = await axios.post(`http://localhost:5000/favorites`, e);
+            swal("Good job!", `${name} has been added as favorites`, "success");
+
+            return response.data;
+        } catch (error) {
+            console.error('Error adding user information:', error);
+            swal("Ohh shit!", "Maybe there is something wrong!", "error");
+            throw error;
+        }
+    }
 
     return (
         <>
-            <a href="#" className="block rounded-lg p-4 shadow-sm shadow-indigo-100">
+            <div href="#" className="block rounded-lg p-4 shadow-sm shadow-indigo-100">
                 <img
                     alt=""
                     src={
@@ -99,12 +114,12 @@ const BookCard = ({ item }) => {
                             </div>
 
                         </div>
-                        <button className="py-2 px-3 bg-gray-900 text-white text-sm rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:bg-black">
+                        <button onClick={() => handleAddToFavorites(_id)} className="py-2 px-3 bg-gray-900 text-white text-sm rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:bg-black">
                             + Favorites
                         </button>
                     </div>
                 </div>
-            </a>
+            </div>
         </>
     );
 };
