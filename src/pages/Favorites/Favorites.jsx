@@ -1,5 +1,27 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import FavoriteCard from "./FavoriteCard";
 
 const Favorites = () => {
+
+    const [article, setArticle] = useState([]);
+    const [error, setError] = useState(false)
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get("http://localhost:5000/favorites")
+                setArticle(response.data)
+            }
+            catch (err) {
+                setError(err)
+            }
+        }
+        fetchData()
+    }, [])
+
+
+
     return (
         <>
             <div className="flex flex-col max-w-screen-2xl mx-auto mt-10 h-[100vh]">
@@ -16,50 +38,9 @@ const Favorites = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr className="odd:bg-white even:bg-gray-100">
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">John Brown</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">45</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">New York No. 1 Lake Park</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                            <button type="button" className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none">Delete</button>
-                                        </td>
-                                    </tr>
-
-                                    <tr className="odd:bg-white even:bg-gray-100">
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">Jim Green</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">27</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">London No. 1 Lake Park</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                            <button type="button" className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none">Delete</button>
-                                        </td>
-                                    </tr>
-
-                                    <tr className="odd:bg-white even:bg-gray-100">
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">Joe Black</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">31</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Sidney No. 1 Lake Park</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                            <button type="button" className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none">Delete</button>
-                                        </td>
-                                    </tr>
-
-                                    <tr className="odd:bg-white even:bg-gray-100">
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">Edward King</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">16</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">LA No. 1 Lake Park</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                            <button type="button" className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none">Delete</button>
-                                        </td>
-                                    </tr>
-
-                                    <tr className="odd:bg-white even:bg-gray-100">
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">Jim Red</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">45</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Melbourne No. 1 Lake Park</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                            <button type="button" className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none">Delete</button>
-                                        </td>
-                                    </tr>
+                                    {
+                                        article?.map(item => <FavoriteCard key={item._id} item={item}></FavoriteCard>)
+                                    }
                                 </tbody>
                             </table>
                         </div>

@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import swal from "sweetalert";
-// import { UserContext } from "../../../Providers/UserContext";
+import "./navbar.css"
 
 const Navbar = () => {
 
@@ -22,28 +22,30 @@ const Navbar = () => {
             <nav className="bg-black p-4">
                 <div className="container mx-auto flex  items-center justify-between">
                     <div className="flex items-center space-x-4">
-                        <div className="text-white text-lg font-bold">
-                            <Link to={"/"}>Logo</Link>
+                        <div className="text-[#edf1f5] me-5">
+                            <Link to={"/"}>
+                                <p className="tracking-tighter text-2xl font-semibold">Book Swap</p>
+                            </Link>
 
                         </div>
                         <div className="hidden md:flex space-x-4">
-                            <a href="#" className="text-white">
-                                <Link to={"/allBooks"}>
+                            <div className="text-white">
+                                <NavLink to={"/allBooks"}>
                                     AllBooks
-                                </Link>
-                            </a>
-                            <a href="#" className="text-white">
-                                <Link to={"/favorites"}>
+                                </NavLink>
+                            </div>
+                            <div className="text-white">
+                                <NavLink to={"/favorites"}>
                                     Favorites
-                                </Link>
+                                </NavLink>
 
-                            </a>
-                            <a href="#" className="text-white">
-                                <Link to={"sharebook"}>
+                            </div>
+                            <div className="text-white">
+                                <NavLink to={"sharebook"}>
                                     ShareABook
-                                </Link>
+                                </NavLink>
 
-                            </a>
+                            </div>
                         </div>
                     </div>
 
