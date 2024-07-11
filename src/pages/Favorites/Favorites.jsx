@@ -31,15 +31,15 @@ const Favorites = () => {
                             <table className="min-w-full divide-y divide-gray-200">
                                 <thead>
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Name</th>
-                                        <th scope="col" className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Age</th>
-                                        <th scope="col" className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Address</th>
+                                        <th scope="col" className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">No.</th>
+                                        <th scope="col" className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Book</th>
+                                        <th scope="col" className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Author</th>
                                         <th scope="col" className="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {
-                                        article?.map(item => <FavoriteCard key={item._id} item={item}></FavoriteCard>)
+                                        article?.map((item, index) => <FavoriteCard key={item._id} index={index + 1} item={item}></FavoriteCard>)
                                     }
                                 </tbody>
                             </table>

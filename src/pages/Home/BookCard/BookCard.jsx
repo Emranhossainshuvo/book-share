@@ -114,7 +114,7 @@ const BookCard = ({ item }) => {
                             </div>
 
                         </div>
-                        <button onClick={() => handleAddToFavorites(_id)} className="py-2 px-3 bg-gray-900 text-white text-sm rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:bg-black">
+                        <button onClick={() => handleAddToFavorites(item)} className="py-2 px-3 bg-gray-900 text-white text-sm rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:bg-black">
                             + Favorites
                         </button>
                     </div>
